@@ -100,15 +100,18 @@ def create_graph():
 if __name__ == "__main__":
     app = create_graph()
 
-    query = "Que penses tu de Donald Trump ?"
-    input_message = add_message(messages, query)
-    config = {"configurable": {"thread_id": THREAD_ID}}
-    data = {
-        "messages": input_message,
-        "language": DEFAULT_LANGUAGE,
-    }
+    query = ""
+    while query != "stop":
+        query = input()
+        input_message = add_message(messages, query)
+        config = {"configurable": {"thread_id": THREAD_ID}}
+        data = {
+            "messages": input_message,
+            "language": DEFAULT_LANGUAGE,
+        }
 
-    output = app.invoke(
-        data, config,
-    )
-    output["messages"][-1].pretty_print()
+        output = app.invoke(
+            data, config,
+        )
+        output["messages"][-1].pretty_print()
+        print('\n')
