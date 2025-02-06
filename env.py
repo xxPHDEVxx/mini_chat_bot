@@ -1,0 +1,2 @@
+groq_api_key = "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"
+langsmith_api_key = "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"
